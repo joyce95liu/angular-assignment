@@ -1,0 +1,50 @@
+<li class="list-group-item ">
+<div *ngFor="let widget of widgets">
+  <div [ngSwitch]="widget.widgetType">
+
+    <div *ngSwitchCase="'HeadingWidget'" class="form-control container-fluid">
+      <h1>Heading Widget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      <div [ngSwitch]="widget.size">
+        Widget text
+        <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+        <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+        <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+        <h4 *ngSwitchCase="'4'">{{widget.text}}</h4>
+        <h5 *ngSwitchCase="'5'">{{widget.text}}</h5>
+        <h6 *ngSwitchCase="'6'">{{widget.text}}</h6>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'LinkWidget'"  class="form-control container-fluid">
+      <h1>Link Widget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      <a href="{{widget.href}}">{{widget.text}}</a>
+    </div>
+
+    <div *ngSwitchCase="'ListWidget'" class="form-control container-fluid">
+      <h1>ListWidget</h1>
+      <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let item of widget.listItems.split('\n')">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngSwitchCase="'ImageWidget'" class="form-control container-fluid">
+      <h1>ImageWidget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      <img src="{{widget.src}}"/>
+    </div>
+
+    <div *ngSwitchCase="'ParagraphWidget'" class="form-control container-fluid">
+      <h1>ParagraphWidget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      {{widget.text()}}
+    </div>
+
+  </div>
+</div>
+</li>

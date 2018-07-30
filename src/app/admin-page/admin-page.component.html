@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-4">
+    <ul class="list-group">
+      <li class="list-group-item active">Course</li>
+      <li [ngClass]="{'active':course.id == courseId}" *ngFor="let course of courses"
+          (click)="loadSectionsForCourse(course.id)"
+          class="list-group-item wbdv">
+          {{course.title}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-8">
+    <ul class="list-group">
+      <li class="list-group-item active">Sections</li>
+      <!--<li -->
+        <!--[ngClass]="{'active':course.id === courseId}" -->
+      <li *ngFor="let section of sections" class="list-group-item wbdv"
+          (click)="selectSection(section)">
+        {{section.name}}  {{section.seats}}
+
+        <button (click)="deleteSection(section._id)">Delete</button>
+        <button (click)="updateSection(section._id,sectionName,seats)">Update</button>
+      </li>
+    </ul>
+
+    <div class="container-fluid">
+      <input [(ngModel)]="sectionName"
+             placeholder="Section Name"
+             class="form-control">
+      <input [(ngModel)]="seats"
+             placeholder="Seats available"
+             class="form-control">
+    <button (click)="createSectionForCourse(sectionName,seats)">Addsection</button>
+    </div>
+  </div>
+
+
+</div>
