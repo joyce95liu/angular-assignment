@@ -4,7 +4,7 @@ export class SectionServiceClient {
   SECTION_URL = 'https://morning-retreat-66910.herokuapp.com/api/course/COURSEID/section';
 
   findSectionsForStudent() {
-    const url = 'https://blooming-sea-46285.herokuapp.com/api/student/section';
+    const url = 'https://morning-retreat-66910.herokuapp.com/api/student/section';
     return fetch(url, {
       credentials: 'include'
     })
@@ -12,7 +12,7 @@ export class SectionServiceClient {
   }
 
   enrollStudentInSection(sectionId) {
-    const url = 'https://blooming-sea-46285.herokuapp.com/api/section/' + sectionId + '/enrollment';
+    const url = 'https://morning-retreat-66910.herokuapp.com/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -37,7 +37,7 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/section/' + sectionId, {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/section/' + sectionId, {
       method: 'delete',
       // credentials: 'include'
     })
@@ -45,7 +45,7 @@ export class SectionServiceClient {
   }
 
   updateSection(sectionId, section) {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/section/' + sectionId, {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/section/' + sectionId, {
       body: JSON.stringify(section),
       credentials: 'include', // include, same-origin, *omit
       method: 'put',
@@ -56,7 +56,7 @@ export class SectionServiceClient {
   }
 
   unEnrollStudentInSection(sectionId) {
-    const url = 'https://blooming-sea-46285.herokuapp.com/api/section/' + sectionId + '/enrollment';
+    const url = 'https://morning-retreat-66910.herokuapp.com/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'delete',
       credentials: 'include'

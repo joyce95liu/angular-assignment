@@ -1,7 +1,7 @@
 export class UserServiceClient {
 
   findUserById(userId) {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/user/' + userId)
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/user/' + userId)
       .then(response => response.json());
   }
 
@@ -10,7 +10,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/login', {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/login', {
       method: 'post',
       body: JSON.stringify(credentials),
       credentials: 'include',
@@ -21,14 +21,14 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/logout', {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/logout', {
       method: 'post',
       credentials: 'include'
     });
   }
 
   profile() {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/profile',
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/profile',
       {
         credentials: 'include', // include, same-origin, *omit
       })
@@ -40,7 +40,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/user', {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/user', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',
@@ -51,7 +51,7 @@ export class UserServiceClient {
   }
 
   updateUser(user) {
-    return fetch('https://blooming-sea-46285.herokuapp.com/api/profile', {
+    return fetch('https://morning-retreat-66910.herokuapp.com/api/profile', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'put',
@@ -80,7 +80,7 @@ export class UserServiceClient {
         username: username,
         password: password
       };
-      return fetch('https://blooming-sea-46285.herokuapp.com/api/register', {
+      return fetch('https://morning-retreat-66910.herokuapp.com/api/register', {
         method: 'post',
         body: JSON.stringify(user),
         credentials: 'include',
