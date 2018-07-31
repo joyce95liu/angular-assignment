@@ -1,30 +1,39 @@
+<div class="container-fluid">
+  <h1>Admin</h1>
+
 <div class="row">
   <div class="col-4">
     <ul class="list-group">
-      <li class="list-group-item active">Course</li>
+      <li class="list-group-item ">Courses</li>
       <li [ngClass]="{'active':course.id == courseId}" *ngFor="let course of courses"
           (click)="loadSectionsForCourse(course.id)"
           class="list-group-item wbdv">
-          {{course.title}}
+         {{course.title}}
       </li>
     </ul>
+    <div>
+    <button (click)="logout()">Logout</button>
+    </div>
+    <div>
+    <a routerLink="/home">Home</a>
+    </div>
   </div>
 
   <div class="col-8">
     <ul class="list-group">
-      <li class="list-group-item active">Sections</li>
-      <!--<li -->
-        <!--[ngClass]="{'active':course.id === courseId}" -->
+      <li class="list-group-item">Sections</li>
       <li *ngFor="let section of sections" class="list-group-item wbdv"
           (click)="selectSection(section)">
-        {{section.name}}  {{section.seats}}
+        {{section.name}}  {{section.seats}} seats
 
-        <button (click)="deleteSection(section._id)">Delete</button>
-        <button (click)="updateSection(section._id,sectionName,seats)">Update</button>
+        <button class="float-right" (click)="deleteSection(section._id)">Delete</button>
+        <button class="float-right" (click)="updateSection(section._id,sectionName,seats)">Update</button>
       </li>
     </ul>
-
-    <div class="container-fluid">
+    <h1></h1>
+    <h3>Add Section for course</h3>
+    <div >
+      <ul class="list-group">
       <input [(ngModel)]="sectionName"
              placeholder="Section Name"
              class="form-control">
@@ -32,8 +41,14 @@
              placeholder="Seats available"
              class="form-control">
     <button (click)="createSectionForCourse(sectionName,seats)">Addsection</button>
+      </ul>
     </div>
   </div>
 
+</div>
 
 </div>
+
+
+
+

@@ -37,7 +37,7 @@ export class SectionListComponent implements OnInit {
   }
 
   enroll(section) {
-    // alert(section._id);
+
     this.service
       .enrollStudentInSection(section._id)
       .then(() => {

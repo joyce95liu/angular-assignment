@@ -12,10 +12,12 @@
 
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
-      {{section.name}} {{section.seats}}
+      {{section.name}} {{section.seats}} seats
       <button (click)="enroll(section)"
               class="float-right btn btn-primary">Enroll</button>
     </li>
   </ul>
+
+  <a routerLink="/home">Home</a>
 
 </div>

@@ -1,7 +1,7 @@
 export class SectionServiceClient {
 
-  // SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
-  SECTION_URL = 'https://morning-retreat-66910.herokuapp.com/api/course/COURSEID/section';
+  SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
+  // SECTION_URL = 'https://morning-retreat-66910.herokuapp.com/api/course/COURSEID/section';
 
   findSectionsForStudent() {
     const url = 'http://localhost:4000/api/student/section';
@@ -52,6 +52,14 @@ export class SectionServiceClient {
       headers: {
         'content-type': 'application/json'
       }
+    });
+  }
+
+  unEnrollStudentInSection(sectionId) {
+    const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment';
+    return fetch(url, {
+      method: 'delete',
+      credentials: 'include'
     });
   }
 }

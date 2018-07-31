@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseServiceClient} from '../services/course.service.client';
 import {SectionServiceClient} from '../services/section.service.client';
+import {UserServiceClient} from '../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -10,7 +12,9 @@ import {SectionServiceClient} from '../services/section.service.client';
 export class AdminPageComponent implements OnInit {
 
   constructor(private courseService: CourseServiceClient,
-              private sectionService: SectionServiceClient) {
+              private sectionService: SectionServiceClient,
+              private service: UserServiceClient,
+              private router: Router) {
   }
 
   courses = [];
@@ -49,6 +53,14 @@ export class AdminPageComponent implements OnInit {
     const section = {name: sectionName, seats: seats}
     this.sectionService.updateSection(sectionId, section)
       .then(() => this.loadSectionsForCourse(this.courseId));
+  }
+
+  logout() {
+    this.service
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
   }
 
 

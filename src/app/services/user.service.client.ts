@@ -51,7 +51,7 @@ export class UserServiceClient {
   }
 
   updateUser(user) {
-    return fetch('http://localhost:4000/api/user', {
+    return fetch('http://localhost:4000/api/profile', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'put',
@@ -60,4 +60,34 @@ export class UserServiceClient {
       }
     });
   }
+
+  // findUserByName(username) {
+  //   const user = {
+  //     username: username
+  //   };
+  //   return fetch('http://localhost:4000/api/username', {
+  //     method: 'post',
+  //     body: JSON.stringify(user),
+  //     credentials: 'include',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   });
+  // }
+
+  register(username , password) {
+      const user = {
+        username: username,
+        password: password
+      };
+      return fetch('http://localhost:4000/api/register', {
+        method: 'post',
+        body: JSON.stringify(user),
+        credentials: 'include',
+        headers: {
+          'content-type': 'application/json'
+        }
+      });
+    }
+
 }

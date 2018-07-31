@@ -33,17 +33,17 @@
       </ul>
     </div>
 
-    <!--<div *ngSwitchCase="'ImageWidget'" class="form-control container-fluid">-->
-      <!--<h1>ImageWidget</h1>-->
-      <!--<div>Widget Name: {{widget.name}}</div>-->
-      <!--<img src="{{widget.src}}"/>-->
-    <!--</div>-->
+    <div *ngSwitchCase="'ImageWidget'">
+      <h1>ImageWidget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      <img src="{{widget.src}}"/>
+    </div>
 
-    <!--<div *ngSwitchCase="'ParagraphWidget'" class="form-control container-fluid">-->
-      <!--<h1>ParagraphWidget</h1>-->
-      <!--<div>Widget Name: {{widget.name}}</div>-->
-      <!--{{widget.text()}}-->
-    <!--</div>-->
+    <div *ngSwitchCase="'ParagraphWidget'" >
+      <h1>ParagraphWidget</h1>
+      <div>Widget Name: {{widget.name}}</div>
+      {{widget.text()}}
+    </div>
 
   </div>
 </div>

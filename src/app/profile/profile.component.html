@@ -17,19 +17,31 @@
           class="btn btn-primary btn-block">
     Update
   </button>
-  <a *ngIf="user.username === 'Admin'"
-     routerLink="/Admin">Admin</a>
+<div>
+  <a *ngIf="user.username === 'admin'"
+     routerLink="/admin">Admin</a>
+</div>
 
+  <div *ngIf="user.username !== 'admin'">
   <h2>Sections ({{sections.length}})</h2>
 
   <ul class="list-group">
     <li *ngFor="let enrollment of sections" class="list-group-item">
-      {{enrollment.section.name}}
-      ({{enrollment.section.seats}})
+      <a routerLink="/course/{{enrollment.section.courseId}}/section">
+        {{enrollment.section.name}}
+        ({{enrollment.section.seats}} seats)
+      </a>
+      <button (click)="unEnroll(enrollment.section._id)"
+              class="float-right btn btn-primary">Unenroll</button>
     </li>
   </ul>
+  </div>
 
-  <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
+  <div>
+    <a routerLink="/home">Home</a>
+  </div>
+  <button (click)="logout()">Logout</button>
+
+
 
 </div>
