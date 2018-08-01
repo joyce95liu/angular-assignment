@@ -37,11 +37,14 @@ export class SectionListComponent implements OnInit {
   }
 
   enroll(section) {
-
     this.service
       .enrollStudentInSection(section._id)
-      .then(() => {
-        this.router.navigate(['profile']);
+      .then((response) => {
+        if (response.status === 404) {
+          alert('The section is full');
+        } else {
+          this.router.navigate(['profile']);
+        }
       });
   }
 

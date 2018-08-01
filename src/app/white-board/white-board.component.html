@@ -11,4 +11,14 @@
   </div>
 
   <app-course-grid></app-course-grid>
+
+  <ul class="list-group">
+    <h3>Sections for the current logged in student {{user.firstName}}</h3>
+    <li *ngFor="let enrollment of sections" class="list-group-item">
+      <a routerLink="/course/{{enrollment.section.courseId}}/section">
+        {{enrollment.section.name}}
+        ({{enrollment.section.seats}} seats)
+      </a>
+    </li>
+  </ul>
 </div>
