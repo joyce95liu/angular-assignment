@@ -15,8 +15,13 @@ export class LoginComponent implements OnInit {
     console.log([username, password]);
     this.service
       .login(username, password)
-      .then(() => {
+      .then((response) => {
+        if (response.status !== 404) {
+          alert('Login Successful');
         this.router.navigate(['profile']);
+        } else {
+        alert('The username or password is incorrect');
+        }
       });
   }
 
